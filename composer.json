@@ -1,0 +1,40 @@
+{
+  "name": "drupal/varbase_ai_safety",
+  "description": "Bundles the complete AI safety stack for Varbase: Prompt Safety Liability set, Prompt Safety Security set, PII Protection set, AI Logging with 90-day retention, and AI Observability.",
+  "keywords": [
+    "recipe",
+    "Varbase recipes",
+    "varbase recipe",
+    "Drupal recipes",
+    "drupal recipe",
+    "AI",
+    "AI Safety",
+    "AI Guardrails",
+    "PII",
+    "Prompt Safety",
+    "AI Logging",
+    "AI Observability",
+    "Drupal AI",
+    "Varbase AI"
+  ],
+  "type": "drupal-recipe",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://www.drupal.org/project/varbase_ai_safety",
+  "authors": [
+    {
+      "name": "Vardot",
+      "homepage": "https://www.drupal.org/vardot",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/varbase_ai_safety"
+  },
+  "require": {
+    "drupal/core": "~11.3.0",
+    "drupal/ai": "~1",
+    "drupal/ai_recipe_guardrails_prompt_safety": "~1",
+    "drupal/ai_recipe_guardrails_pii": "~1"
+  },
+  "version": "1.0.x-dev"
+}

@@ -1,0 +1,19 @@
+name: 'Varbase AI Safety'
+description: 'Bundles a complete AI safety stack for Varbase: Prompt Safety Liability set (legal advice, medical advice, sensitive topics), Prompt Safety Security set (XSS, HTML/CSS/JavaScript injection, prompt manipulation/jailbreak detection), PII Protection set (email, credit card, IBAN, phone), AI Logging with 90-day retention, and AI Observability for compliance reporting. Targets enterprise Varbase deployments where GDPR, liability control, and security hardening are required.'
+type: 'Varbase AI'
+recipes:
+  - ai_recipe_guardrails_prompt_safety
+  - ai_recipe_guardrails_pii
+install:
+  - ai_logging
+  - ai_observability
+config:
+  strict: false
+  import:
+    ai_logging: '*'
+    ai_observability: '*'
+  actions:
+    ai_logging.settings:
+      simpleConfigUpdate:
+        prompt_logging: true
+        prompt_logging_max_age: 90

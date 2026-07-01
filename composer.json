@@ -31,7 +31,7 @@
     "issues": "https://www.drupal.org/project/issues/varbase_ai_safety"
   },
   "require": {
-    "drupal/core": "~11.3.0",
+    "drupal/core": "~11.4.0",
     "drupal/ai": "~1",
     "drupal/ai_recipe_guardrails_prompt_safety": "~1",
     "drupal/ai_recipe_guardrails_pii": "~1"

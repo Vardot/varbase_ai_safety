@@ -2,7 +2,7 @@
 
 # Varbase AI Safety
 [![pipeline status](https://git.drupalcode.org/project/varbase_ai_safety/badges/1.0.x/pipeline.svg)](https://git.drupalcode.org/project/varbase_ai_safety/-/pipelines)
-[![Varbase AI Safety](https://img.shields.io/badge/Varbase%20AI%20Safety-1.0.0--alpha3-0d6efc?labelColor=001d38&style=flat-square)](https://git.drupalcode.org/project/varbase_ai_safety/-/pipelines?ref=1.0.0-alpha3)
+[![Varbase AI Safety](https://img.shields.io/badge/Varbase%20AI%20Safety-1.0.0--beta1-0d6efc?labelColor=001d38&style=flat-square)](https://git.drupalcode.org/project/varbase_ai_safety/-/pipelines?ref=1.0.0-beta1)
 [![Automated Functional Testing](https://git.drupalcode.org/project/varbase_project/badges/11.0.x/pipeline.svg)](https://git.drupalcode.org/project/varbase_project/-/pipelines)
 
 A recipe to bundle a complete AI safety stack for Varbase — guardrails, logging, and observability.

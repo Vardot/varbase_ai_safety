@@ -36,5 +36,5 @@
     "drupal/ai_recipe_guardrails_prompt_safety": "~1",
     "drupal/ai_recipe_guardrails_pii": "~1"
   },
-  "version": "1.0.0-beta1"
+  "version": "1.0.x-dev"
 }

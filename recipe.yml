@@ -1,5 +1,5 @@
 name: 'Varbase AI Safety'
-description: 'Bundles a complete AI safety stack for Varbase: Prompt Safety Liability set (legal advice, medical advice, sensitive topics), Prompt Safety Security set (XSS, HTML/CSS/JavaScript injection, prompt manipulation/jailbreak detection), PII Protection set (email, credit card, IBAN, phone), AI Logging with 90-day retention, and AI Observability for compliance reporting. Targets enterprise Varbase deployments where GDPR, liability control, and security hardening are required.'
+description: 'Bundles a complete AI safety stack for Varbase: Prompt Safety Liability set (legal advice, medical advice, sensitive topics), Prompt Safety Security set (XSS, HTML/CSS/JavaScript injection, prompt manipulation/jailbreak detection), PII Protection set (email, credit card, IBAN, phone), Image Safety (uploaded images unsuitable for a general audience are refused, checked by the site''s vision model), AI Logging with 90-day retention, and AI Observability for compliance reporting. Targets enterprise Varbase deployments where GDPR, liability control, and security hardening are required.'
 type: 'Varbase AI'
 recipes:
   - ai_recipe_guardrails_prompt_safety
@@ -7,13 +7,112 @@ recipes:
 install:
   - ai_logging
   - ai_observability
+  - file
+  - image
+  - media
+  - field_validation
+  - ai_validations
 config:
   strict: false
   import:
     ai_logging: '*'
     ai_observability: '*'
   actions:
+    # Stop when no default model is set for image vision: every upload would be refused.
+    ai.settings:
+      verifySetupAi:
+        operation_type_has_default_model:
+          - chat_with_image_vision
     ai_logging.settings:
       simpleConfigUpdate:
         prompt_logging: true
         prompt_logging_max_age: 90
+    # Image safety: one AI Validations rule on the image field, created after the check above.
+    field_validation.rule_set.media_image:
+      createIfNotExists:
+        langcode: en
+        status: true
+        # Enforced, so the rule set goes with the image field or media type.
+        dependencies:
+          enforced:
+            config:
+              - field.field.media.image.field_media_image
+              - media.type.image
+        name: media_image
+        label: 'AI image safety (Media: Image)'
+        entity_type: media
+        bundle: image
+        field_validation_rules:
+          5404021f-e7e9-4c60-a10b-a63ad86e886d:
+            uuid: 5404021f-e7e9-4c60-a10b-a63ad86e886d
+            id: ai_image_constraint_rule
+            title: 'Block unsafe imagery'
+            data:
+              prompt: |-
+                You are a strict content-safety classifier for image uploads. Classify the
+                attached image into one of three Flickr-style safety levels, then return a
+                single token indicating whether the image is allowed.
+
+                === SAFETY LEVELS ===
+
+                SAFE — Suitable for a global, public audience.
+                - Fully clothed subjects in non-suggestive contexts.
+                - No nudity, no sexual suggestion.
+                - No blood, open wounds, gore, or graphic medical imagery.
+                - No graphic violence.
+
+                MODERATE — Mature but not explicit.
+                - Partial nudity: exposed or visible female nipples or areolas, nipple
+                  covers / pasties, or see-through attire exposing nipples.
+                - Bare breasts or bare buttocks outside of an explicit sexual context.
+                - Sexually suggestive poses, attire, or framing that stops short of
+                  explicit sexual acts.
+                - Mild violence or minor injuries without heavy blood or gore.
+
+                RESTRICTED — Explicit or graphic; unsuitable for minors.
+                - Full frontal nudity, including exposed genitalia (real, virtual, or
+                  illustrated).
+                - Explicit sexual acts or depictions of sexual activity.
+                - Excessive gore or graphic violence: severe injuries, dismemberment,
+                  large volumes of blood, or corpses shown graphically.
+                - Medically graphic content such as open wounds, graphic surgical
+                  procedures, or other intense medical situations.
+                - Content censored via pixelation, blurring, or shapes must be classified
+                  according to the underlying imagery — censorship does not downgrade it.
+
+                === CLASSIFICATION RULES ===
+                - Judge the overall image: subject, context, focus, and primary elements.
+                - If an image could reasonably fit two levels, assign the MORE RESTRICTIVE
+                  level.
+                - If you cannot classify the image with confidence, assign RESTRICTED.
+
+                === DECISION ===
+                - If the image is SAFE, respond with: XTRUE
+                - If the image is MODERATE or RESTRICTED, respond with: XFALSE
+
+                === OUTPUT FORMAT ===
+                Respond with exactly one token — either XTRUE or XFALSE — and nothing else.
+                No explanation. No punctuation. No surrounding whitespace.
+              message: 'This image was flagged as Moderate or Restricted (nudity, sexually suggestive content, gore, graphic violence, or graphic medical imagery) and cannot be uploaded. Only images suitable for a general, public audience are permitted.'
+              validate_mode: default
+              provider: ''
+            weight: 1
+            field_name: field_media_image
+            column: target_id
+            error_message: ''
+            roles:
+              anonymous: anonymous
+              authenticated: authenticated
+              content_editor: content_editor
+              content_admin: content_admin
+              seo_admin: seo_admin
+              site_admin: site_admin
+              administrator: administrator
+            condition:
+              field: ''
+              operator: ''
+              value: ''
+      setStatus: true
+    # Save the image field once, so its cached definition picks up the new rule.
+    field.field.media.image.field_media_image:
+      setStatus: true

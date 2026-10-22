@@ -12,6 +12,9 @@ This recipe provides a defense-in-depth AI safety setup including:
 - AI Logging ([`ai_logging`](https://www.drupal.org/project/ai)) with 90-day retention enabled by default
 - AI Observability ([`ai_observability`](https://www.drupal.org/project/ai)) for transparency and compliance reporting
 - 14 guardrail rules across 3 sets, configured against `restrict_to_topic` and `regexp_guardrail` plugins
+- Image safety: images uploaded to the Image media type are checked by the site's vision model and refused when they are not suitable for a general audience ([`field_validation`](https://www.drupal.org/project/field_validation) and [`ai_validations`](https://www.drupal.org/project/ai_validations))
+
+**Requirement:** a default model for **Chat with Image Vision** (`/admin/config/ai/settings`). The recipe stops before it changes anything when none is set: without one, every image upload would be refused.
 
 ## Sub-Recipes Applied
 
@@ -44,6 +47,14 @@ Detects and blocks personally identifiable information (PII) in both user input 
 - PII: IBAN
 - PII: Phone Number
 
+## Image Safety
+
+Every image uploaded to the Image media type, from the media add form or the media library, is sent to the site's default vision model and refused when it is not suitable for a general audience: nudity, sexually suggestive content, gore, graphic violence or graphic medical imagery. The editor sees why it was refused.
+
+- One Field Validation rule set, `AI image safety (Media: Image)`, with an AI Validations rule on `field_media_image`, for every role. Edit the prompt or the message at `/admin/structure/field_validation`.
+- **It fails closed**: when the provider errors or the model is removed later, uploads are refused until it is back.
+- Applying the recipe again leaves an edited rule set as it is.
+
 ## AI Logging Settings Applied
 
 - `prompt_logging`: `true` (automatic logging enabled)
@@ -57,6 +68,8 @@ Detects and blocks personally identifiable information (PII) in both user input 
 - [`drupal/ai`](https://www.drupal.org/project/ai) `~1`
 - [`drupal/ai_recipe_guardrails_prompt_safety`](https://www.drupal.org/project/ai_recipe_guardrails_prompt_safety) `~1`
 - [`drupal/ai_recipe_guardrails_pii`](https://www.drupal.org/project/ai_recipe_guardrails_pii) `~1`
+- [`drupal/field_validation`](https://www.drupal.org/project/field_validation) `~3.0`
+- [`drupal/ai_validations`](https://www.drupal.org/project/ai_validations) `~1.4`
 
 ## Apply the Recipe
 

@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Image Safety: every image uploaded to the Image media type is checked by the site's default vision model and refused when it is not suitable for a general audience, through Field Validation and AI Validations. The recipe now needs a default model for Chat with Image Vision (#3632342).
 
 ## [1.0.0] - 2026-09-06
 ### Changed

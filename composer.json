@@ -41,5 +41,5 @@
     "drupal/ai_validations": "~1.4",
     "drupal/field_validation": "~3.0"
   },
-  "version": "1.0.1"
+  "version": "1.0.x-dev"
 }

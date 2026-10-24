@@ -6,8 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.0.1] - 2026-10-24
 ### Added
-- Image Safety: every image uploaded to the Image media type is checked by the site's default vision model and refused when it is not suitable for a general audience, through Field Validation and AI Validations. The recipe now needs a default model for Chat with Image Vision (#3632342).
+- Refuse uploaded images unsuitable for a general audience with an AI image safety check ([#3632342](https://www.drupal.org/i/3632342)).
 
 ## [1.0.0] - 2026-09-06
 ### Changed
@@ -37,7 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release of the Varbase AI Safety recipe.
 
-[Unreleased]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.0...1.0.x
+[Unreleased]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.1...1.0.x
+[1.0.1]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.0...1.0.1
 [1.0.0]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.0-rc1...1.0.0
 [1.0.0-rc1]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.0-beta1...1.0.0-rc1
 [1.0.0-beta1]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.0-alpha3...1.0.0-beta1

@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Move the documentation to docs.varbase.vardot.com ([#3633018](https://www.drupal.org/i/3633018)).
+
 ## [1.0.1] - 2026-10-24
 ### Added
 - Refuse uploaded images unsuitable for a general audience with an AI image safety check ([#3632342](https://www.drupal.org/i/3632342)).

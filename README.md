@@ -33,3 +33,9 @@ drush recipe recipes/contrib/varbase_ai_safety
 ```
 
 **Requirement:** a default model for **Chat with Image Vision** (`/admin/config/ai/settings`). The recipe stops before it changes anything when none is set: without one, every image upload would be refused.
+
+## Automated testing
+
+GitLab CI on [git.drupalcode.org](https://git.drupalcode.org/project/varbase_ai_safety) (`.gitlab-ci.yml`) builds
+a Varbase 11 site, applies this recipe twice and runs the Varbase functional testing suite in `tests/` on it. See
+[tests/README.md](tests/README.md) to run it against a site of your own.

@@ -1,0 +1,5 @@
+{
+  "css": {
+    "alternative text field": "input[name='field_media_image[0][alt]']"
+  }
+}

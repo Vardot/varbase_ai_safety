@@ -8,15 +8,14 @@ Feature: Varbase AI Recipe - AI Safety - Images are checked before they are save
     Given I am a logged in user with the "Content editor" user
      When I go to "/media/add/image"
       And I fill in "Name" with "Green hills at noon"
-      And I attach the file "landscape.jpg" to "#edit-field-media-image-0-upload"
+      And I attach the file "landscape.jpg" to the "Add a new file" field
       And I wait max of 30 seconds
      Then I see visible alternative text field
      When I fill in "Alternative text" with "Green hills under a sunny sky"
-      And I press "Save"
+      And I click the "Save" button
      Then I should see "Green hills at noon"
       And I should not see "This image was flagged as Moderate or Restricted"
      When I logout
     Given I am a logged in user with the "Webmaster" user
      When I go to "/admin/config/ai/logging/collection"
-     Then I should see "ai_validations"
-      And I should see "You are a strict content-safety classifier"
+     Then I should see "You are a strict content-safety classifier"

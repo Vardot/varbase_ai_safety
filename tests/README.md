@@ -7,9 +7,11 @@ Varbase 11 site with this recipe applied.
 | --- | --- |
 | `01-01-ai-safety-image-check.feature` | An editor uploads an image: the vision model checks it, it is saved, and the check is in the AI log |
 | `01-02-ai-safety-access.feature` | Only the webmaster opens the guardrails and the AI log |
-| `01-03-ai-safety-accessibility.feature` | The add image form keeps the label, link name and ARIA rules |
+| `01-03-ai-safety-accessibility.feature` | The add image form gives every field a label and every link a name |
 
 The upload form elements are named selectors in `tests/selectors/ai-safety-selectors.json`.
+
+One custom step, in `tests/step-definitions/files.steps.js`, attaches an upload to a file field by its label.
 
 ## Run it
 
@@ -28,6 +30,6 @@ The recipe stops when no AI provider has a default model: CI checks that first. 
 which sets up an amazee.ai trial as the default provider, so no key is needed and the image check runs on a
 real vision model.
 
-The add image form is held to pinned accessibility rules rather than the full serious gate: the admin theme's
+The add image form is held to the field label, link name and ARIA role checks rather than the full serious gate: the admin theme's
 help toggles have no names and a details summary is low in contrast, which comes from the theme, not this
 recipe.

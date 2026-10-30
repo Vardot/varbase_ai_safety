@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-10-29
+### Added
+- A Claude Code agent and skill for applying and verifying the recipe ([#3633927](https://www.drupal.org/i/3633927)).
+
+### Changed
+- Disable Drupal CMS telemetry in CI ([#3633860](https://www.drupal.org/i/3633860)).
+- Update the version badge to `1.0.3` in `README.md`.
+
 ## [1.0.2] - 2026-10-27
 ### Added
 - Automated functional acceptance tests for the image safety check, its access and accessibility, run in CI on a fresh Varbase 11 site ([#3633124](https://www.drupal.org/i/3633124)).
@@ -48,7 +56,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release of the Varbase AI Safety recipe.
 
-[Unreleased]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.2...1.0.x
+[Unreleased]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.3...1.0.x
+[1.0.3]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.2...1.0.3
 [1.0.2]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.1...1.0.2
 [1.0.1]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.0...1.0.1
 [1.0.0]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.0-rc1...1.0.0

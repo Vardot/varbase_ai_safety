@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.4] - 2026-11-14
+### Changed
+- Update Node.js to `>= 24.0` in `package.json` and the GitLab CI ([#3635721](https://www.drupal.org/i/3635721)).
+- Update the version badge to `1.0.4` in `README.md`.
+
 ## [1.0.3] - 2026-10-29
 ### Added
 - A Claude Code agent and skill for applying and verifying the recipe ([#3633927](https://www.drupal.org/i/3633927)).
@@ -56,7 +61,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release of the Varbase AI Safety recipe.
 
-[Unreleased]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.3...1.0.x
+[Unreleased]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.4...1.0.x
+[1.0.4]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.3...1.0.4
 [1.0.3]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.2...1.0.3
 [1.0.2]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.1...1.0.2
 [1.0.1]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.0...1.0.1

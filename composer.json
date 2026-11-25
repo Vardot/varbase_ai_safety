@@ -35,9 +35,9 @@
   },
   "require": {
     "drupal/core": "^11.4 || ^12.0",
-    "drupal/ai": "^1.0",
-    "drupal/ai_recipe_guardrails_prompt_safety": "^1.0",
-    "drupal/ai_recipe_guardrails_pii": "^1.0",
+    "drupal/ai": "^1",
+    "drupal/ai_recipe_guardrails_prompt_safety": "^1",
+    "drupal/ai_recipe_guardrails_pii": "^1",
     "drupal/ai_validations": "^1.4",
     "drupal/field_validation": "^3.0"
   },

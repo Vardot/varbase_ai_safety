@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.6] - 2026-11-25
+### Changed
+- Use caret constraints and allow Drupal 11.4 and later and Drupal 12 in Varbase AI Safety recipe ([#3638925](https://git.drupalcode.org/project/varbase_ai_safety/-/work_items/3638925)).
+- Update the version badge to `1.0.6` in `README.md`.
+
 ## [1.0.5] - 2026-11-23
 ### Changed
 - Change the default PHP version to PHP 8.5 in the GitLab CI ([#3638922](https://www.drupal.org/i/3638922)).
@@ -66,7 +71,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release of the Varbase AI Safety recipe.
 
-[Unreleased]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.5...1.0.x
+[Unreleased]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.6...1.0.x
+[1.0.6]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.5...1.0.6
 [1.0.5]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.4...1.0.5
 [1.0.4]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.3...1.0.4
 [1.0.3]: https://git.drupalcode.org/project/varbase_ai_safety/-/compare/1.0.2...1.0.3
